@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/339834__rocotilos__8-bit-you-win.wav-948a8b45691a37e74f9a45de79489747.sample"
+
+[deps]
+
+source_file="res://assets/339834__rocotilos__8-bit-you-win.wav"
+dest_files=[ "res://.import/339834__rocotilos__8-bit-you-win.wav-948a8b45691a37e74f9a45de79489747.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

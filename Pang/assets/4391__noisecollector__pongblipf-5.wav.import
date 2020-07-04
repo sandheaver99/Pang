@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/4391__noisecollector__pongblipf-5.wav-4be8d3b62ffb8eca37a5bb1a33817876.sample"
+
+[deps]
+
+source_file="res://assets/4391__noisecollector__pongblipf-5.wav"
+dest_files=[ "res://.import/4391__noisecollector__pongblipf-5.wav-4be8d3b62ffb8eca37a5bb1a33817876.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/339835__rocotilos__8-bit-you-lose.wav-c789fea7916fa520ea09d03f78bfd390.sample"
+
+[deps]
+
+source_file="res://assets/339835__rocotilos__8-bit-you-lose.wav"
+dest_files=[ "res://.import/339835__rocotilos__8-bit-you-lose.wav-c789fea7916fa520ea09d03f78bfd390.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

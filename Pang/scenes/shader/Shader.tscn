@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/CRTShader.shader" type="Shader" id=1]
+[ext_resource path="res://assets/white_1x1.png" type="Texture" id=2]
+[ext_resource path="res://assets/sample.png" type="Texture" id=3]
+[ext_resource path="res://assets/CRTFrame.png" type="Texture" id=4]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 1 )
+shader_param/screen_width = 880.0
+shader_param/screen_height = 720.0
+shader_param/BarrelPower = 1.1
+shader_param/color_bleeding = 1.2
+shader_param/bleeding_range_x = 3.0
+shader_param/bleeding_range_y = 3.0
+shader_param/lines_distance = 4.0
+shader_param/scan_size = 2.0
+shader_param/scanline_alpha = 0.9
+shader_param/lines_velocity = 30.0
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+visible = false
+position = Vector2( 512, 304 )
+texture = ExtResource( 3 )
+
+[node name="Shaders" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="Shaders"]
+material = SubResource( 1 )
+margin_right = 880.0
+margin_bottom = 720.0
+texture = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CRTFrame" type="TextureRect" parent="."]
+margin_right = 880.0
+margin_bottom = 720.0
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

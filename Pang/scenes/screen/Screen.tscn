@@ -1,0 +1,291 @@
+[gd_scene load_steps=31 format=2]
+
+[ext_resource path="res://assets/dash_2x8.png" type="Texture" id=1]
+[ext_resource path="res://assets/Gameplay.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://scenes/screen/scripts/score_label.gd" type="Script" id=3]
+[ext_resource path="res://scenes/ball/Ball.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/paddle/Paddle.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/4390__noisecollector__pongblipf-4.wav" type="AudioStream" id=6]
+[ext_resource path="res://assets/4391__noisecollector__pongblipf-5.wav" type="AudioStream" id=7]
+[ext_resource path="res://assets/Hit_Hurt4.wav" type="AudioStream" id=8]
+[ext_resource path="res://scenes/options/Options.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/screen/scripts/manager.gd" type="Script" id=10]
+[ext_resource path="res://assets/F2-FOR-OPTIONS.png" type="Texture" id=11]
+[ext_resource path="res://assets/339834__rocotilos__8-bit-you-win.wav" type="AudioStream" id=12]
+[ext_resource path="res://assets/339835__rocotilos__8-bit-you-lose.wav" type="AudioStream" id=13]
+[ext_resource path="res://assets/PANG.png" type="Texture" id=14]
+[ext_resource path="res://scenes/screen/scripts/ai.gd" type="Script" id=15]
+[ext_resource path="res://scenes/shader/Shader.tscn" type="PackedScene" id=16]
+[ext_resource path="res://assets/F1-TO-START.png" type="Texture" id=17]
+
+[sub_resource type="CanvasItemMaterial" id=12]
+blend_mode = 1
+
+[sub_resource type="Animation" id=1]
+resource_name = "Fade"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.901961 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "Fade_In"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.588235 ) ]
+}
+
+[sub_resource type="CanvasItemMaterial" id=13]
+blend_mode = 1
+
+[sub_resource type="Animation" id=3]
+resource_name = "Fade"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.901961 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "Fade_In"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.588235 ) ]
+}
+
+[sub_resource type="CanvasItemMaterial" id=9]
+blend_mode = 1
+
+[sub_resource type="DynamicFont" id=5]
+size = 40
+font_data = ExtResource( 2 )
+
+[sub_resource type="CanvasItemMaterial" id=10]
+blend_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id=11]
+blend_mode = 1
+
+[sub_resource type="Animation" id=6]
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.901961 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.235294 ), Color( 1, 1, 1, 0.588235 ) ]
+}
+
+[sub_resource type="Environment" id=8]
+background_mode = 4
+glow_enabled = true
+glow_levels/1 = true
+glow_levels/2 = true
+glow_levels/4 = true
+glow_intensity = 2.47
+glow_strength = 1.13
+glow_bloom = 0.07
+glow_blend_mode = 0
+glow_bicubic_upscale = true
+
+[node name="Screen" type="Node2D"]
+
+[node name="Manager" type="Control" parent="."]
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Labels" type="Control" parent="Manager"]
+modulate = Color( 1, 1, 1, 0.588235 )
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="F1Start" type="Sprite" parent="Manager/Labels"]
+modulate = Color( 1, 1, 1, 0.588235 )
+material = SubResource( 12 )
+position = Vector2( 232, 544 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 17 )
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="Manager/Labels/F1Start"]
+anims/Fade = SubResource( 1 )
+anims/Fade_In = SubResource( 2 )
+
+[node name="F2Options" type="Sprite" parent="Manager/Labels"]
+modulate = Color( 1, 1, 1, 0.588235 )
+material = SubResource( 13 )
+position = Vector2( 656, 544 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 11 )
+
+[node name="Options" parent="Manager/Labels/F2Options" instance=ExtResource( 9 )]
+margin_left = -512.0
+margin_top = -496.0
+margin_right = -200.0
+margin_bottom = -200.0
+
+[node name="AnimationPlayer3" type="AnimationPlayer" parent="Manager/Labels/F2Options"]
+anims/Fade = SubResource( 3 )
+anims/Fade_In = SubResource( 4 )
+
+[node name="LScore" type="Label" parent="."]
+modulate = Color( 0.552941, 0.498039, 0.67451, 0.784314 )
+material = SubResource( 9 )
+margin_left = 200.0
+margin_top = 40.0
+margin_right = 248.0
+margin_bottom = 116.0
+custom_fonts/font = SubResource( 5 )
+text = "0"
+align = 1
+valign = 1
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RScore" type="Label" parent="."]
+modulate = Color( 0.552941, 0.498039, 0.67451, 0.784314 )
+material = SubResource( 10 )
+margin_left = 632.0
+margin_top = 40.0
+margin_right = 680.0
+margin_bottom = 116.0
+custom_fonts/font = SubResource( 5 )
+text = "0"
+align = 1
+valign = 1
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+player = 1
+
+[node name="PaddleLeft" parent="." instance=ExtResource( 5 )]
+position = Vector2( 40, 360 )
+
+[node name="PaddleRight" parent="." instance=ExtResource( 5 )]
+position = Vector2( 840, 360 )
+player = 1
+
+[node name="AI" type="Node" parent="PaddleRight"]
+script = ExtResource( 15 )
+
+[node name="Ball" parent="." instance=ExtResource( 4 )]
+position = Vector2( 439, 358 )
+
+[node name="Timer" type="Timer" parent="Ball"]
+one_shot = true
+
+[node name="PaddleBlip" type="AudioStreamPlayer2D" parent="Ball"]
+stream = ExtResource( 7 )
+
+[node name="WallBlip" type="AudioStreamPlayer2D" parent="Ball"]
+stream = ExtResource( 6 )
+
+[node name="GoalGlip" type="AudioStreamPlayer" parent="Ball"]
+stream = ExtResource( 8 )
+volume_db = -22.213
+pitch_scale = 0.5
+
+[node name="YouWin" type="AudioStreamPlayer2D" parent="Ball"]
+stream = ExtResource( 12 )
+
+[node name="YouLose" type="AudioStreamPlayer2D" parent="Ball"]
+stream = ExtResource( 13 )
+
+[node name="TimerGameOver" type="Timer" parent="Ball"]
+wait_time = 4.0
+one_shot = true
+
+[node name="PangLogo" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.588235 )
+material = SubResource( 11 )
+position = Vector2( 443, 77 )
+texture = ExtResource( 14 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PangLogo"]
+anims/Fade = SubResource( 6 )
+anims/Fade_In = SubResource( 7 )
+
+[node name="Court" type="Node2D" parent="."]
+modulate = Color( 1, 1, 1, 0.235294 )
+
+[node name="Midline" type="TextureRect" parent="Court"]
+margin_left = 439.0
+margin_top = 20.0
+margin_right = 442.0
+margin_bottom = 700.0
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Shader" parent="." instance=ExtResource( 16 )]
+visible = false
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 8 )
+[connection signal="timeout" from="Ball/Timer" to="Ball" method="_on_Timer_timeout"]
+[connection signal="timeout" from="Ball/TimerGameOver" to="Ball" method="_on_TimerGameOver_timeout"]
